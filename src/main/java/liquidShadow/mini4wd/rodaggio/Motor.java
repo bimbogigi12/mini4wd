@@ -59,7 +59,7 @@ public class Motor {
 		
 		System.out.println(stepCount+" steps "+sleepTime+" waiting");
 		
-		while (stepCount > 0) {
+		while (delta >= 0) {
 			
 			if (verse) {
 				pin1Power = maxPower- delta;
@@ -101,7 +101,7 @@ public class Motor {
 		System.out.println(stepCount+" steps "+sleepTime+" waiting");
 		
 		
-		while (stepCount > 0) {
+		while (delta <= 100) {
 			
 			if (verse) {
 				pin1Power = minPower+ delta;
