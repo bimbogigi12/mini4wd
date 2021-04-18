@@ -37,7 +37,7 @@ public class Motor {
 		} else {
 			pin2Power = power;
 		}
-		LOG.info("run at "+power+"% for "+duration+"seconds");
+		LOG.debug("run at "+power+"% for "+duration+"seconds");
 		
 		SoftPwm.softPwmWrite(pinInput1.getPin().getAddress(), pin1Power);
 		SoftPwm.softPwmWrite(pinInput2.getPin().getAddress(), pin2Power);
@@ -74,8 +74,8 @@ public class Motor {
 				pin2Power = maxPower- delta;
 			}
 			
-			LOG.info("incremnting pin1 to "+pin1Power+"% for "+sleepTime+" millis");
-			LOG.info("incremnting pin2 to "+pin2Power+"% for "+sleepTime+" millis");
+			LOG.debug("incremnting pin1 to "+pin1Power+"% for "+sleepTime+" millis");
+			LOG.debug("incremnting pin2 to "+pin2Power+"% for "+sleepTime+" millis");
 			
 			SoftPwm.softPwmWrite(pinInput1.getPin().getAddress(), pin1Power);
 			SoftPwm.softPwmWrite(pinInput2.getPin().getAddress(), pin2Power);
@@ -98,14 +98,14 @@ public class Motor {
 	public void decrement(int maxPower, int duration, boolean verse) {
 		pinEnabled.high();
 		
-		int delta = maxPower - minPower;
+		int delta = minPower;
 		
 		int stepCount = delta*1000/duration;
 		int sleepTime = delta * 1000 / duration;
 		int pin1Power = 0;
 		int pin2Power = 0;
 		
-		LOG.info(stepCount+" steps "+sleepTime+" waiting");
+		LOG.debug(stepCount+" steps "+sleepTime+" waiting");
 		
 		
 		while (delta <= 100) {
@@ -116,8 +116,8 @@ public class Motor {
 				pin2Power = minPower+ delta;
 			}
 			
-			LOG.info("decremnting pin1 to "+pin1Power+"% for "+sleepTime+" millis");
-			LOG.info("decremnting pin2 to "+pin2Power+"% for "+sleepTime+" millis");
+			LOG.debug("decremnting pin1 to "+pin1Power+"% for "+sleepTime+" millis");
+			LOG.debug("decremnting pin2 to "+pin2Power+"% for "+sleepTime+" millis");
 			
 			SoftPwm.softPwmWrite(pinInput1.getPin().getAddress(), pin1Power);
 			SoftPwm.softPwmWrite(pinInput2.getPin().getAddress(), pin2Power);
