@@ -24,7 +24,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>liquidshadow.rasp1.App</mainClass>
+							<mainClass>liquidshadow.mini4wd.App</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>
