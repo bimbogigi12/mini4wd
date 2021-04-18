@@ -1,7 +1,12 @@
 package liquidShadow.mini4wd.rodaggio;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.pi4j.io.gpio.GpioPinDigitalOutput;
 import com.pi4j.wiringpi.SoftPwm;
+
+
 
 public class Motor {
 
@@ -10,6 +15,8 @@ public class Motor {
 	private GpioPinDigitalOutput pinInput2;
 	
 	private int minPower = 20;
+	
+	private static Logger LOG = LogManager.getLogger(Motor.class);
 
 	public Motor(GpioPinDigitalOutput pinEnabled, GpioPinDigitalOutput pinInput1, GpioPinDigitalOutput pinInput2) {
 		this.pinEnabled = pinEnabled;
@@ -30,7 +37,7 @@ public class Motor {
 		} else {
 			pin2Power = power;
 		}
-		System.out.println("run at "+power+"% for "+duration+"seconds");
+		LOG.info("run at "+power+"% for "+duration+"seconds");
 		
 		SoftPwm.softPwmWrite(pinInput1.getPin().getAddress(), pin1Power);
 		SoftPwm.softPwmWrite(pinInput2.getPin().getAddress(), pin2Power);
@@ -67,8 +74,8 @@ public class Motor {
 				pin2Power = maxPower- delta;
 			}
 			
-			System.out.println("incremnting pin1 to "+pin1Power+"% for "+sleepTime+" millis");
-			System.out.println("incremnting pin2 to "+pin2Power+"% for "+sleepTime+" millis");
+			LOG.info("incremnting pin1 to "+pin1Power+"% for "+sleepTime+" millis");
+			LOG.info("incremnting pin2 to "+pin2Power+"% for "+sleepTime+" millis");
 			
 			SoftPwm.softPwmWrite(pinInput1.getPin().getAddress(), pin1Power);
 			SoftPwm.softPwmWrite(pinInput2.getPin().getAddress(), pin2Power);
@@ -98,7 +105,7 @@ public class Motor {
 		int pin1Power = 0;
 		int pin2Power = 0;
 		
-		System.out.println(stepCount+" steps "+sleepTime+" waiting");
+		LOG.info(stepCount+" steps "+sleepTime+" waiting");
 		
 		
 		while (delta <= 100) {
@@ -109,8 +116,8 @@ public class Motor {
 				pin2Power = minPower+ delta;
 			}
 			
-			System.out.println("decremnting pin1 to "+pin1Power+"% for "+sleepTime+" millis");
-			System.out.println("decremnting pin2 to "+pin2Power+"% for "+sleepTime+" millis");
+			LOG.info("decremnting pin1 to "+pin1Power+"% for "+sleepTime+" millis");
+			LOG.info("decremnting pin2 to "+pin2Power+"% for "+sleepTime+" millis");
 			
 			SoftPwm.softPwmWrite(pinInput1.getPin().getAddress(), pin1Power);
 			SoftPwm.softPwmWrite(pinInput2.getPin().getAddress(), pin2Power);
