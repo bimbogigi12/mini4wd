@@ -24,7 +24,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>liquidshadow.mini4wd.App</mainClass>
+							<mainClass>liquidShadow.mini4wd.App</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>
@@ -42,7 +42,7 @@
 						<manifest>
 							<addClasspath>true</addClasspath>
 							<classpathPrefix>/opt/pi4j/lib/</classpathPrefix>
-							<mainClass>liquidshadow.mini4wd.App</mainClass>
+							<mainClass>liquidShadow.mini4wd.App</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
