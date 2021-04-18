@@ -51,10 +51,12 @@ public class Motor {
 		
 		int delta = maxPower - minPower;
 		
-		int stepCount = delta/duration;
+		int stepCount = delta/duration * 1000;
 		int sleepTime = delta * 1000 / duration;
 		int pin1Power = 0;
 		int pin2Power = 0;
+		
+		System.out.println(stepCount+" steps "+sleepTime+" waiting");
 		
 		while (stepCount > 0) {
 			
@@ -94,6 +96,9 @@ public class Motor {
 		int sleepTime = delta * 1000 / duration;
 		int pin1Power = 0;
 		int pin2Power = 0;
+		
+		System.out.println(stepCount+" steps "+sleepTime+" waiting");
+		
 		
 		while (stepCount > 0) {
 			
