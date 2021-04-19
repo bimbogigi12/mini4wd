@@ -28,7 +28,7 @@ public class App {
 			Motor motor = new Motor(getPin1(), getPin2(), getPin3());
 
 			motor.run(50, 20, true);
-			/*Thread.sleep(sleepTime);
+			Thread.sleep(sleepTime);
 			motor.run(50, 120, false);
 			Thread.sleep(sleepTime);
 			motor.increment(100, 120, true);
@@ -42,7 +42,7 @@ public class App {
 			motor.run(100, 120, true);
 			Thread.sleep(sleepTime);
 			motor.run(100, 120, false);
-*/
+
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
