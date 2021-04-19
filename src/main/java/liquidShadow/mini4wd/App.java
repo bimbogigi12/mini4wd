@@ -23,9 +23,19 @@ public class App {
 	private static Logger LOG = LogManager.getLogger(App.class);
 
 	public static void main(String[] args) {
-		 
+		for (String arg : args) { 
 
-		runRodaggio();
+			LOG.info("arg "+arg);
+			
+			
+			if ("Rodaggio".equals(arg)) {
+				runRodaggio();
+			}
+			
+			if ("Contagiri".equals(arg)) {
+				contagiri();
+			}
+		}
 	}
 	
 	private static void contagiri() {
