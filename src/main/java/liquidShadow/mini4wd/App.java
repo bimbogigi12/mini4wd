@@ -1,5 +1,8 @@
 package liquidShadow.mini4wd;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.pi4j.io.gpio.GpioController;
 import com.pi4j.io.gpio.GpioFactory;
 import com.pi4j.io.gpio.GpioPinDigitalOutput;
@@ -14,6 +17,7 @@ public class App {
 	public static GpioPinDigitalOutput pin2 = null;
 	public static GpioPinDigitalOutput pin3 = null;
 	
+	private static Logger LOG = LogManager.getLogger(App.class);
 
 	public static void main(String[] args) {
 		 
@@ -22,31 +26,38 @@ public class App {
 	}
 
 	private static void runRodaggio() {
-		System.out.println("Starting rodaggio");
+		LOG.info("Starting rodaggio");
 		try {
 			int sleepTime = 60 * 1000;
 			Motor motor = new Motor(getPin1(), getPin2(), getPin3());
 
 			motor.run(50, 120, true);
+			LOG.debug("sleep for "+sleepTime+" seconds");
 			Thread.sleep(sleepTime);
 			motor.run(50, 120, false);
+			LOG.debug("sleep for "+sleepTime+" seconds");
 			Thread.sleep(sleepTime);
 			motor.increment(100, 120, true);
+			LOG.debug("sleep for "+sleepTime+" seconds");
 			Thread.sleep(sleepTime);
 			motor.increment(100, 120, false);
+			LOG.debug("sleep for "+sleepTime+" seconds");
 			Thread.sleep(sleepTime);
 			motor.decrement(100, 120, true);
+			LOG.debug("sleep for "+sleepTime+" seconds");
 			Thread.sleep(sleepTime);
 			motor.decrement(100, 120, false);
+			LOG.debug("sleep for "+sleepTime+" seconds");
 			Thread.sleep(sleepTime);
 			motor.run(100, 120, true);
+			LOG.debug("sleep for "+sleepTime+" seconds");
 			Thread.sleep(sleepTime);
 			motor.run(100, 120, false);
 
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		System.out.println("Ended rodaggio");
+		LOG.info("Ended rodaggio");
 	}
 
 	private static GpioPinDigitalOutput getPin1() {
