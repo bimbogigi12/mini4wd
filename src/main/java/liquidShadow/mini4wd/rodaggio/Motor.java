@@ -58,13 +58,13 @@ public class Motor {
 		
 		int delta = maxPower - minPower;
 		
-		int stepCount = delta*1000/duration;
+		
 		int sleepTime = delta * 1000 / duration;
 		int pin1Power = 0;
 		int pin2Power = 0;
 		
 		
-		LOG.debug(stepCount+" steps "+sleepTime+" waiting");
+//		LOG.debug(stepCount+" steps "+sleepTime+" waiting");
 		
 		while (delta >= 0) {
 			
@@ -85,7 +85,6 @@ public class Motor {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			stepCount--;
 			delta--;
 		}
 		
@@ -100,20 +99,19 @@ public class Motor {
 		
 		int delta = minPower;
 		
-		int stepCount = delta*1000/duration;
-		int sleepTime = delta * 1000 / duration;
+		int sleepTime = (maxPower - minPower) * 1000 / duration;
 		int pin1Power = 0;
 		int pin2Power = 0;
 		
-		LOG.debug(stepCount+" steps "+sleepTime+" waiting");
+//		LOG.debug(stepCount+" steps "+sleepTime+" waiting");
 		
 		
 		while (delta <= 100) {
 			
 			if (verse) {
-				pin1Power = minPower+ delta;
+				pin1Power = maxPower-delta;
 			} else {
-				pin2Power = minPower+ delta;
+				pin2Power = maxPower-delta;
 			}
 			
 			LOG.debug("decremnting pin1 to "+pin1Power+"% for "+sleepTime+" millis");
@@ -127,7 +125,6 @@ public class Motor {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			stepCount--;
 			delta++;
 		}
 		
