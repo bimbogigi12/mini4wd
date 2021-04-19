@@ -21,7 +21,7 @@ public class Contagiri {
 		int sleepTime = 10;
 		int timeLeft = duration;
 		try {
-			while (timeLeft < 0) {
+			while (timeLeft > 0) {
 				boolean isHigh = pinInput1.getState().isHigh();
 				if (isHigh) {
 					count++;
