@@ -16,6 +16,7 @@ public class App {
 	public static GpioPinDigitalOutput pin4 = null;
 
 	public static void main(String[] args) {
+		 
 
 		runRodaggio();
 	}
@@ -41,7 +42,6 @@ public class App {
 			motor.run(100, 120, true);
 			Thread.sleep(sleepTime);
 			motor.run(100, 120, false);
-			Thread.sleep(sleepTime);
 
 		} catch (Exception ex) {
 			ex.printStackTrace();

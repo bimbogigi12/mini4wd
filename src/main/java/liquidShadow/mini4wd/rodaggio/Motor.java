@@ -64,7 +64,7 @@ public class Motor {
 		int pin2Power = 0;
 		
 		
-		System.out.println(stepCount+" steps "+sleepTime+" waiting");
+		LOG.debug(stepCount+" steps "+sleepTime+" waiting");
 		
 		while (delta >= 0) {
 			
