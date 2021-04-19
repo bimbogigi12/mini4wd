@@ -32,25 +32,25 @@ public class App {
 			Motor motor = new Motor(getPin1(), getPin2(), getPin3());
 
 			motor.run(50, 120, true);
-			LOG.debug("sleep for "+sleepTime+" seconds");
+			LOG.debug("sleep for "+sleepTime+" millis");
 			Thread.sleep(sleepTime);
 			motor.run(50, 120, false);
-			LOG.debug("sleep for "+sleepTime+" seconds");
+			LOG.debug("sleep for "+sleepTime+" millis");
 			Thread.sleep(sleepTime);
 			motor.increment(100, 120, true);
-			LOG.debug("sleep for "+sleepTime+" seconds");
+			LOG.debug("sleep for "+sleepTime+" millis");
 			Thread.sleep(sleepTime);
 			motor.increment(100, 120, false);
-			LOG.debug("sleep for "+sleepTime+" seconds");
+			LOG.debug("sleep for "+sleepTime+" millis");
 			Thread.sleep(sleepTime);
 			motor.decrement(100, 120, true);
-			LOG.debug("sleep for "+sleepTime+" seconds");
+			LOG.debug("sleep for "+sleepTime+" millis");
 			Thread.sleep(sleepTime);
 			motor.decrement(100, 120, false);
-			LOG.debug("sleep for "+sleepTime+" seconds");
+			LOG.debug("sleep for "+sleepTime+" millis");
 			Thread.sleep(sleepTime);
 			motor.run(100, 120, true);
-			LOG.debug("sleep for "+sleepTime+" seconds");
+			LOG.debug("sleep for "+sleepTime+" millis");
 			Thread.sleep(sleepTime);
 			motor.run(100, 120, false);
 

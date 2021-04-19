@@ -74,7 +74,9 @@ public class Motor {
 				pin2Power = maxPower- delta;
 			}
 			
+			if (pin1Power > 0)
 			LOG.debug("incremnting pin1 to "+pin1Power+"% for "+sleepTime+" millis");
+			if (pin2Power > 0)
 			LOG.debug("incremnting pin2 to "+pin2Power+"% for "+sleepTime+" millis");
 			
 			SoftPwm.softPwmWrite(pinInput1.getPin().getAddress(), pin1Power);
@@ -114,7 +116,9 @@ public class Motor {
 				pin2Power = maxPower-delta;
 			}
 			
+			if (pin1Power>0)
 			LOG.debug("decremnting pin1 to "+pin1Power+"% for "+sleepTime+" millis");
+			if (pin2Power>0)
 			LOG.debug("decremnting pin2 to "+pin2Power+"% for "+sleepTime+" millis");
 			
 			SoftPwm.softPwmWrite(pinInput1.getPin().getAddress(), pin1Power);
