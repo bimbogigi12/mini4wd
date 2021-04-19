@@ -7,6 +7,7 @@ import com.pi4j.io.gpio.GpioController;
 import com.pi4j.io.gpio.GpioFactory;
 import com.pi4j.io.gpio.GpioPinDigitalInput;
 import com.pi4j.io.gpio.GpioPinDigitalOutput;
+import com.pi4j.io.gpio.PinPullResistance;
 import com.pi4j.io.gpio.PinState;
 import com.pi4j.io.gpio.RaspiPin;
 
@@ -106,7 +107,8 @@ public class App {
 	private static GpioPinDigitalInput getPin4() {
 		if (pin4 == null) {
 			final GpioController gpio = GpioFactory.getInstance();
-			pin4 = gpio.provisionDigitalInputPin(RaspiPin.GPIO_04);
+			pin4 = gpio.provisionDigitalInputPin(RaspiPin.GPIO_04, PinPullResistance.PULL_DOWN);
+			pin4.setShutdownOptions(true);
 		}
 		return pin4;
 	}
