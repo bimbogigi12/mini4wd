@@ -99,7 +99,7 @@ public class Motor {
 	public void decrement(int maxPower, int duration, boolean verse) {
 		pinEnabled.high();
 		
-		int delta = minPower;
+		int delta = 0;
 		
 		int sleepTime = (maxPower - minPower) * 1000 / duration;
 		int pin1Power = 0;
@@ -108,7 +108,7 @@ public class Motor {
 //		LOG.debug(stepCount+" steps "+sleepTime+" waiting");
 		
 		
-		while (delta <= 100) {
+		while (delta + minPower <= 100) {
 			
 			if (verse) {
 				pin1Power = maxPower-delta;
