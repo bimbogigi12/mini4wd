@@ -13,7 +13,7 @@ public class App {
 	public static GpioPinDigitalOutput pin1 = null;
 	public static GpioPinDigitalOutput pin2 = null;
 	public static GpioPinDigitalOutput pin3 = null;
-	public static GpioPinDigitalOutput pin4 = null;
+	
 
 	public static void main(String[] args) {
 		 
@@ -27,8 +27,8 @@ public class App {
 			int sleepTime = 60 * 1000;
 			Motor motor = new Motor(getPin1(), getPin2(), getPin3());
 
-			motor.run(50, 120, true);
-			Thread.sleep(sleepTime);
+			motor.run(50, 20, true);
+			/*Thread.sleep(sleepTime);
 			motor.run(50, 120, false);
 			Thread.sleep(sleepTime);
 			motor.increment(100, 120, true);
@@ -42,7 +42,7 @@ public class App {
 			motor.run(100, 120, true);
 			Thread.sleep(sleepTime);
 			motor.run(100, 120, false);
-
+*/
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -73,11 +73,4 @@ public class App {
 		return pin3;
 	}
 
-	private static GpioPinDigitalOutput getPin4() {
-		if (pin4 == null) {
-			final GpioController gpio = GpioFactory.getInstance();
-			pin4 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_04, "PinLED", PinState.LOW);
-		}
-		return pin4;
-	}
 }
