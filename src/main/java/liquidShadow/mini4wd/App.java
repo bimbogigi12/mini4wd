@@ -36,6 +36,10 @@ public class App {
 			if ("Contagiri".equals(arg)) {
 				contagiri();
 			}
+			
+			if ("TestMotore".equals(arg)) {
+				testMotore();
+			}
 		}
 	}
 	
@@ -78,6 +82,12 @@ public class App {
 			ex.printStackTrace();
 		}
 		LOG.info("Ended rodaggio");
+	}
+	
+	private static void testMotore() {
+		Motor motor = new Motor(getPin1(), getPin2(), getPin3());
+		
+		motor.run(100, 10*60*1000, true);
 	}
 
 	private static GpioPinDigitalOutput getPin1() {
